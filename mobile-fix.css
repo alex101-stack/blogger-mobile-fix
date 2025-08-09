@@ -1,6 +1,6 @@
-/* CSS Perbaikan Slider Mobile untuk Blogger - mobile-fix.css */
+/* CSS Perbaikan Slider Mobile untuk Blogger - mobile-fix.css (FIXED) */
 
-/* Reset dan base styling untuk semua gambar */
+/* === BASE FIXES === */
 .post-body img,
 .post img,
 article img {
@@ -13,76 +13,83 @@ article img {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* === PERBAIKAN SLIDER KHUSUS === */
+/* === SLIDER FIXES - TARGETING COMMON BLOGGER SLIDER CLASSES === */
 
-/* Container slider umum */
+/* Hero slider / Featured slider containers */
+.hero-slider,
+.featured-slider,
+.main-slider,
+.banner-slider,
+.home-slider,
+.slider-wrap,
 .slider-container,
-.carousel-container,
-.slideshow-container,
-.swiper-container,
 .owl-carousel,
-.slider,
-.carousel {
+.swiper-container,
+.splide,
+.carousel,
+.slideshow {
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden;
-    position: relative;
-    background: #fff;
+    position: relative !important;
+    overflow: hidden !important;
+    background: transparent !important;
 }
 
-/* Slide individual */
-.slide,
+/* Slide items */
+.hero-slide,
+.featured-slide,
+.slider-item,
+.slide-item,
 .carousel-item,
 .swiper-slide,
 .owl-item,
-.slider-item {
+.splide__slide {
     position: relative !important;
     width: 100% !important;
     height: auto !important;
-    display: block !important;
+    background: transparent !important;
 }
 
-/* Gambar dalam slider */
-.slide img,
+/* Images inside slides */
+.hero-slide img,
+.featured-slide img,
+.slider-item img,
+.slide-item img,
 .carousel-item img,
 .swiper-slide img,
 .owl-item img,
-.slider-item img,
-.slider img,
-.carousel img {
+.splide__slide img {
     width: 100% !important;
-    height: auto !important;
     max-width: 100% !important;
+    height: auto !important;
     object-fit: cover !important;
     display: block !important;
     margin: 0 !important;
     border-radius: 0 !important;
 }
 
-/* Title/Caption dalam slider */
-.slide-title,
+/* Slide content/overlay */
+.slide-content,
+.slider-content,
+.hero-content,
 .carousel-caption,
-.slider-caption,
 .slide-caption,
-.slider-title {
+.banner-content {
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
     background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important;
     color: #fff !important;
-    padding: 30px 15px 15px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
+    padding: 30px 20px 20px !important;
     text-align: left !important;
-    line-height: 1.4 !important;
     z-index: 10 !important;
 }
 
-/* === MEDIA QUERIES MOBILE === */
-
+/* === MOBILE RESPONSIVE === */
 @media screen and (max-width: 768px) {
-    /* Tablet dan mobile besar */
+    
+    /* Regular images */
     .post-body img,
     .post img,
     article img {
@@ -91,10 +98,8 @@ article img {
         height: auto !important;
         margin: 15px 0;
         padding: 0;
-        box-sizing: border-box;
     }
     
-    /* Container untuk gambar */
     .separator {
         width: 100% !important;
         margin: 20px 0 !important;
@@ -106,118 +111,217 @@ article img {
         display: block !important;
     }
     
-    /* === SLIDER MOBILE LANDSCAPE === */
+    /* === SLIDER MOBILE LANDSCAPE FIXES === */
+    
+    /* Slider containers - force landscape */
+    .hero-slider,
+    .featured-slider,
+    .main-slider,
+    .banner-slider,
+    .home-slider,
+    .slider-wrap,
     .slider-container,
-    .carousel-container,
-    .slideshow-container,
+    .owl-carousel,
     .swiper-container,
-    .owl-carousel {
+    .splide,
+    .carousel,
+    .slideshow {
         width: 100% !important;
-        height: 250px !important; /* Fixed height untuk landscape */
-        margin: 20px 0 !important;
-        border-radius: 12px !important;
+        height: 280px !important; /* Fixed height for landscape */
+        min-height: 280px !important;
+        max-height: 280px !important;
+        margin: 15px 0 !important;
+        border-radius: 10px !important;
         overflow: hidden !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
     }
     
-    /* Slide wrapper */
-    .slide,
+    /* Slide items - match container height */
+    .hero-slide,
+    .featured-slide,
+    .slider-item,
+    .slide-item,
     .carousel-item,
     .swiper-slide,
     .owl-item,
-    .slider-item {
-        height: 250px !important; /* Sama dengan container */
+    .splide__slide {
+        height: 280px !important;
+        min-height: 280px !important;
+        max-height: 280px !important;
         overflow: hidden !important;
+        position: relative !important;
     }
     
-    /* Gambar slider mobile - landscape mode */
-    .slide img,
+    /* Images - landscape mode with proper cropping */
+    .hero-slide img,
+    .featured-slide img,
+    .slider-item img,
+    .slide-item img,
     .carousel-item img,
     .swiper-slide img,
     .owl-item img,
-    .slider-item img {
+    .splide__slide img {
         width: 100% !important;
-        height: 250px !important; /* Fixed height */
+        height: 280px !important;
+        min-height: 280px !important;
+        max-height: 280px !important;
         object-fit: cover !important;
         object-position: center center !important;
         border-radius: 0 !important;
-        transition: transform 0.3s ease !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
-    /* Caption/Title positioning mobile */
-    .slide-title,
+    /* Content overlay - adjusted for mobile */
+    .slide-content,
+    .slider-content,
+    .hero-content,
     .carousel-caption,
-    .slider-caption,
     .slide-caption,
-    .slider-title {
+    .banner-content {
         position: absolute !important;
         bottom: 0 !important;
         left: 0 !important;
         right: 0 !important;
         background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important;
         color: #fff !important;
-        padding: 40px 20px 20px !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        text-align: center !important;
-        line-height: 1.3 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+        padding: 40px 15px 15px !important;
+        text-align: left !important;
         z-index: 15 !important;
-        max-height: 80px !important;
+        max-height: 120px !important;
         overflow: hidden !important;
     }
     
-    /* Navigasi slider */
+    /* Text sizing adjustments */
+    .slide-content h1,
+    .slider-content h1,
+    .hero-content h1,
+    .carousel-caption h1,
+    .slide-caption h1,
+    .banner-content h1,
+    .slide-title,
+    .slider-title {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+        margin: 0 0 8px 0 !important;
+        font-weight: 700 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+    }
+    
+    .slide-content h2,
+    .slider-content h2,
+    .hero-content h2,
+    .carousel-caption h2,
+    .slide-caption h2,
+    .banner-content h2 {
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+        margin: 0 0 6px 0 !important;
+        font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+    }
+    
+    .slide-content p,
+    .slider-content p,
+    .hero-content p,
+    .carousel-caption p,
+    .slide-caption p,
+    .banner-content p {
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        margin: 0 0 8px 0 !important;
+        opacity: 0.95 !important;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5) !important;
+    }
+    
+    /* Buttons in slider */
+    .slide-content .btn,
+    .slider-content .btn,
+    .hero-content .btn,
+    .carousel-caption .btn,
+    .slide-caption .btn,
+    .banner-content .btn,
+    .slider-btn,
+    .slide-btn {
+        display: inline-block !important;
+        padding: 8px 16px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        background: #007cba !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 6px !important;
+        text-decoration: none !important;
+        margin-top: 8px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .slide-content .btn:hover,
+    .slider-btn:hover,
+    .slide-btn:hover {
+        background: #005a8b !important;
+        transform: translateY(-1px) !important;
+    }
+    
+    /* Navigation arrows */
     .slider-nav,
     .carousel-nav,
+    .owl-nav,
     .swiper-button-next,
     .swiper-button-prev,
-    .owl-nav {
+    .splide__arrow {
         position: absolute !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
         z-index: 20 !important;
         background: rgba(255,255,255,0.9) !important;
+        border: none !important;
         border-radius: 50% !important;
-        width: 40px !important;
-        height: 40px !important;
+        width: 36px !important;
+        height: 36px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        cursor: pointer !important;
         box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
     }
     
     .slider-nav.prev,
+    .owl-prev,
     .swiper-button-prev,
-    .owl-prev {
-        left: 15px !important;
+    .splide__arrow--prev {
+        left: 12px !important;
     }
     
     .slider-nav.next,
+    .owl-next,
     .swiper-button-next,
-    .owl-next {
-        right: 15px !important;
+    .splide__arrow--next {
+        right: 12px !important;
     }
     
-    /* Dots/Pagination */
+    /* Pagination dots */
     .slider-dots,
     .carousel-dots,
+    .owl-dots,
     .swiper-pagination,
-    .owl-dots {
+    .splide__pagination {
         position: absolute !important;
-        bottom: 15px !important;
+        bottom: 12px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         z-index: 20 !important;
         display: flex !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
     
     .slider-dot,
+    .owl-dot,
     .swiper-pagination-bullet,
-    .owl-dot {
-        width: 8px !important;
-        height: 8px !important;
+    .splide__pagination__page {
+        width: 7px !important;
+        height: 7px !important;
         border-radius: 50% !important;
         background: rgba(255,255,255,0.5) !important;
         border: none !important;
@@ -226,126 +330,158 @@ article img {
     }
     
     .slider-dot.active,
+    .owl-dot.active,
     .swiper-pagination-bullet-active,
-    .owl-dot.active {
+    .splide__pagination__page.is-active {
         background: #fff !important;
         transform: scale(1.2) !important;
     }
 }
 
 @media screen and (max-width: 480px) {
-    /* Mobile kecil */
-    .post-body img,
-    .post img,
-    article img {
-        max-width: calc(100vw - 20px) !important;
-        width: calc(100vw - 20px) !important;
-        height: auto !important;
-        margin: 10px auto;
-        border-radius: 6px;
-    }
-    
-    /* Slider mobile kecil */
+    /* Mobile kecil - smaller slider */
+    .hero-slider,
+    .featured-slider,
+    .main-slider,
+    .banner-slider,
+    .home-slider,
+    .slider-wrap,
     .slider-container,
-    .carousel-container,
-    .slideshow-container,
+    .owl-carousel,
     .swiper-container,
-    .owl-carousel {
-        height: 220px !important; /* Sedikit lebih kecil untuk mobile kecil */
-        margin: 15px 0 !important;
+    .splide,
+    .carousel,
+    .slideshow {
+        height: 240px !important;
+        min-height: 240px !important;
+        max-height: 240px !important;
+        margin: 10px 0 !important;
         border-radius: 8px !important;
     }
     
-    .slide,
+    .hero-slide,
+    .featured-slide,
+    .slider-item,
+    .slide-item,
     .carousel-item,
     .swiper-slide,
     .owl-item,
-    .slider-item {
-        height: 220px !important;
+    .splide__slide {
+        height: 240px !important;
+        min-height: 240px !important;
+        max-height: 240px !important;
     }
     
-    .slide img,
+    .hero-slide img,
+    .featured-slide img,
+    .slider-item img,
+    .slide-item img,
     .carousel-item img,
     .swiper-slide img,
     .owl-item img,
-    .slider-item img {
-        height: 220px !important;
+    .splide__slide img {
+        height: 240px !important;
+        min-height: 240px !important;
+        max-height: 240px !important;
     }
     
-    /* Caption mobile kecil */
+    /* Smaller text for mobile */
+    .slide-content h1,
+    .slider-content h1,
+    .hero-content h1,
+    .carousel-caption h1,
+    .slide-caption h1,
+    .banner-content h1,
     .slide-title,
-    .carousel-caption,
-    .slider-caption,
-    .slide-caption,
     .slider-title {
-        padding: 35px 15px 15px !important;
-        font-size: 13px !important;
-        max-height: 70px !important;
+        font-size: 16px !important;
+        line-height: 1.2 !important;
     }
     
-    /* Navigasi mobile kecil */
-    .slider-nav,
-    .carousel-nav,
-    .swiper-button-next,
-    .swiper-button-prev,
-    .owl-nav {
-        width: 35px !important;
-        height: 35px !important;
+    .slide-content h2,
+    .slider-content h2,
+    .hero-content h2,
+    .carousel-caption h2,
+    .slide-caption h2,
+    .banner-content h2 {
+        font-size: 14px !important;
     }
     
-    .slider-nav.prev,
-    .swiper-button-prev,
-    .owl-prev {
-        left: 10px !important;
+    .slide-content p,
+    .slider-content p,
+    .hero-content p,
+    .carousel-caption p,
+    .slide-caption p,
+    .banner-content p {
+        font-size: 12px !important;
+        line-height: 1.1 !important;
     }
     
-    .slider-nav.next,
-    .swiper-button-next,
-    .owl-next {
-        right: 10px !important;
+    .slide-content,
+    .slider-content,
+    .hero-content,
+    .carousel-caption,
+    .slide-caption,
+    .banner-content {
+        padding: 30px 12px 12px !important;
+        max-height: 100px !important;
     }
 }
 
-/* === PERBAIKAN UMUM === */
+/* === ADDITIONAL FIXES === */
 
-/* Menghilangkan abu-abu/background tidak diinginkan */
+/* Remove unwanted backgrounds */
+.slider-container::before,
 .slider-container::after,
-.carousel-container::after,
-.slideshow-container::after {
+.hero-slider::before,
+.hero-slider::after {
     display: none !important;
 }
 
-/* Mengatasi overflow horizontal */
-.post-body,
-.post,
-article {
-    overflow-x: hidden;
+/* Override inline styles */
+.slider-item[style],
+.slide-item[style],
+.hero-slide[style],
+.carousel-item[style] {
+    height: auto !important;
+    background: transparent !important;
 }
 
-/* Perbaikan untuk gambar dengan inline styles */
+.slider-item img[style],
+.slide-item img[style],
+.hero-slide img[style],
+.carousel-item img[style] {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+}
+
+/* Blogger specific fixes */
+.post-body .tr-caption-container,
+.post .tr-caption-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 .post-body .separator img[style],
 .post img[style],
-article img[style],
-.slide img[style],
-.carousel-item img[style] {
+article img[style] {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
 }
 
-/* Hover effects untuk desktop */
-@media screen and (min-width: 769px) {
-    .slide img:hover,
-    .carousel-item img:hover,
-    .swiper-slide img:hover {
-        transform: scale(1.05) !important;
-        transition: transform 0.4s ease !important;
-    }
+/* Prevent horizontal overflow */
+.post-body,
+.post,
+article,
+body {
+    overflow-x: hidden !important;
 }
 
-/* Loading state */
-.slide img[data-src],
-.carousel-item img[data-src] {
+/* Loading animation */
+.slider-item img[data-src],
+.slide-item img[data-src] {
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
@@ -356,24 +492,13 @@ article img[style],
     100% { background-position: -200% 0; }
 }
 
-/* Fix untuk Blogger's caption container */
-.post-body .tr-caption-container,
-.post .tr-caption-container {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-/* Widget images */
-.widget img {
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* Accessibility improvements */
-.slider-nav:focus,
-.slider-dot:focus {
-    outline: 2px solid #007cba !important;
-    outline-offset: 2px !important;
+/* Desktop hover effects */
+@media screen and (min-width: 769px) {
+    .slider-item img:hover,
+    .slide-item img:hover {
+        transform: scale(1.03) !important;
+        transition: transform 0.4s ease !important;
+    }
 }
 
 /* CSS Perbaikan Tampilan Gambar untuk Mobile di Blogger */
@@ -507,3 +632,4 @@ img[data-src] {
     max-width: 100% !important;
 
 }
+
