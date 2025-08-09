@@ -1,3 +1,381 @@
+/* CSS Perbaikan Slider Mobile untuk Blogger - mobile-fix.css */
+
+/* Reset dan base styling untuk semua gambar */
+.post-body img,
+.post img,
+article img {
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* === PERBAIKAN SLIDER KHUSUS === */
+
+/* Container slider umum */
+.slider-container,
+.carousel-container,
+.slideshow-container,
+.swiper-container,
+.owl-carousel,
+.slider,
+.carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+}
+
+/* Slide individual */
+.slide,
+.carousel-item,
+.swiper-slide,
+.owl-item,
+.slider-item {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* Gambar dalam slider */
+.slide img,
+.carousel-item img,
+.swiper-slide img,
+.owl-item img,
+.slider-item img,
+.slider img,
+.carousel img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Title/Caption dalam slider */
+.slide-title,
+.carousel-caption,
+.slider-caption,
+.slide-caption,
+.slider-title {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important;
+    color: #fff !important;
+    padding: 30px 15px 15px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
+    z-index: 10 !important;
+}
+
+/* === MEDIA QUERIES MOBILE === */
+
+@media screen and (max-width: 768px) {
+    /* Tablet dan mobile besar */
+    .post-body img,
+    .post img,
+    article img {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 15px 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Container untuk gambar */
+    .separator {
+        width: 100% !important;
+        margin: 20px 0 !important;
+        padding: 0 !important;
+    }
+    
+    .separator a {
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    /* === SLIDER MOBILE LANDSCAPE === */
+    .slider-container,
+    .carousel-container,
+    .slideshow-container,
+    .swiper-container,
+    .owl-carousel {
+        width: 100% !important;
+        height: 250px !important; /* Fixed height untuk landscape */
+        margin: 20px 0 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Slide wrapper */
+    .slide,
+    .carousel-item,
+    .swiper-slide,
+    .owl-item,
+    .slider-item {
+        height: 250px !important; /* Sama dengan container */
+        overflow: hidden !important;
+    }
+    
+    /* Gambar slider mobile - landscape mode */
+    .slide img,
+    .carousel-item img,
+    .swiper-slide img,
+    .owl-item img,
+    .slider-item img {
+        width: 100% !important;
+        height: 250px !important; /* Fixed height */
+        object-fit: cover !important;
+        object-position: center center !important;
+        border-radius: 0 !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* Caption/Title positioning mobile */
+    .slide-title,
+    .carousel-caption,
+    .slider-caption,
+    .slide-caption,
+    .slider-title {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important;
+        color: #fff !important;
+        padding: 40px 20px 20px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+        z-index: 15 !important;
+        max-height: 80px !important;
+        overflow: hidden !important;
+    }
+    
+    /* Navigasi slider */
+    .slider-nav,
+    .carousel-nav,
+    .swiper-button-next,
+    .swiper-button-prev,
+    .owl-nav {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 20 !important;
+        background: rgba(255,255,255,0.9) !important;
+        border-radius: 50% !important;
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+    }
+    
+    .slider-nav.prev,
+    .swiper-button-prev,
+    .owl-prev {
+        left: 15px !important;
+    }
+    
+    .slider-nav.next,
+    .swiper-button-next,
+    .owl-next {
+        right: 15px !important;
+    }
+    
+    /* Dots/Pagination */
+    .slider-dots,
+    .carousel-dots,
+    .swiper-pagination,
+    .owl-dots {
+        position: absolute !important;
+        bottom: 15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 20 !important;
+        display: flex !important;
+        gap: 8px !important;
+    }
+    
+    .slider-dot,
+    .swiper-pagination-bullet,
+    .owl-dot {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        background: rgba(255,255,255,0.5) !important;
+        border: none !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .slider-dot.active,
+    .swiper-pagination-bullet-active,
+    .owl-dot.active {
+        background: #fff !important;
+        transform: scale(1.2) !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Mobile kecil */
+    .post-body img,
+    .post img,
+    article img {
+        max-width: calc(100vw - 20px) !important;
+        width: calc(100vw - 20px) !important;
+        height: auto !important;
+        margin: 10px auto;
+        border-radius: 6px;
+    }
+    
+    /* Slider mobile kecil */
+    .slider-container,
+    .carousel-container,
+    .slideshow-container,
+    .swiper-container,
+    .owl-carousel {
+        height: 220px !important; /* Sedikit lebih kecil untuk mobile kecil */
+        margin: 15px 0 !important;
+        border-radius: 8px !important;
+    }
+    
+    .slide,
+    .carousel-item,
+    .swiper-slide,
+    .owl-item,
+    .slider-item {
+        height: 220px !important;
+    }
+    
+    .slide img,
+    .carousel-item img,
+    .swiper-slide img,
+    .owl-item img,
+    .slider-item img {
+        height: 220px !important;
+    }
+    
+    /* Caption mobile kecil */
+    .slide-title,
+    .carousel-caption,
+    .slider-caption,
+    .slide-caption,
+    .slider-title {
+        padding: 35px 15px 15px !important;
+        font-size: 13px !important;
+        max-height: 70px !important;
+    }
+    
+    /* Navigasi mobile kecil */
+    .slider-nav,
+    .carousel-nav,
+    .swiper-button-next,
+    .swiper-button-prev,
+    .owl-nav {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .slider-nav.prev,
+    .swiper-button-prev,
+    .owl-prev {
+        left: 10px !important;
+    }
+    
+    .slider-nav.next,
+    .swiper-button-next,
+    .owl-next {
+        right: 10px !important;
+    }
+}
+
+/* === PERBAIKAN UMUM === */
+
+/* Menghilangkan abu-abu/background tidak diinginkan */
+.slider-container::after,
+.carousel-container::after,
+.slideshow-container::after {
+    display: none !important;
+}
+
+/* Mengatasi overflow horizontal */
+.post-body,
+.post,
+article {
+    overflow-x: hidden;
+}
+
+/* Perbaikan untuk gambar dengan inline styles */
+.post-body .separator img[style],
+.post img[style],
+article img[style],
+.slide img[style],
+.carousel-item img[style] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Hover effects untuk desktop */
+@media screen and (min-width: 769px) {
+    .slide img:hover,
+    .carousel-item img:hover,
+    .swiper-slide img:hover {
+        transform: scale(1.05) !important;
+        transition: transform 0.4s ease !important;
+    }
+}
+
+/* Loading state */
+.slide img[data-src],
+.carousel-item img[data-src] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Fix untuk Blogger's caption container */
+.post-body .tr-caption-container,
+.post .tr-caption-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Widget images */
+.widget img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Accessibility improvements */
+.slider-nav:focus,
+.slider-dot:focus {
+    outline: 2px solid #007cba !important;
+    outline-offset: 2px !important;
+}
+
 /* CSS Perbaikan Tampilan Gambar untuk Mobile di Blogger */
 
 /* Reset dan base styling untuk semua gambar */
@@ -127,4 +505,5 @@ img[data-src] {
 .post .tr-caption-container img {
     width: 100% !important;
     max-width: 100% !important;
+
 }
